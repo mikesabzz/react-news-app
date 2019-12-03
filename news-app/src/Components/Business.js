@@ -1,9 +1,9 @@
-import React from 'react'
-import axios from 'axios'
+import React from 'react';
+import axios from 'axios';
 
 const apiKey = process.env.REACT_APP_TOKEN_APIKEY
 
-class WallStreet extends React.Component {
+class Business extends React.Component {
     constructor(){
         super()
         this.state = {
@@ -11,21 +11,20 @@ class WallStreet extends React.Component {
         }
     }
     fetchNews = async () => {
-        const url = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${apiKey}`
+        const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}`
         const data = await axios.get(url)
         const { data: {articles} } = data
         this.setState({articles})
     }
-    componentDidMount(){
-       this.fetchNews()
+    componentDidMount() {
+        this.fetchNews()
     }
-
     renderItem = () => {
         const {articles} = this.state
         return articles.map(article => {
             const { title, author, urlToImage, description, url } = article
             return (
-                <div key={title} className="news">
+                <div key={title} classname="news">
                     <img src={urlToImage} />
                     <div className="title-container">
                         <h1>{title}</h1>
@@ -37,11 +36,10 @@ class WallStreet extends React.Component {
             )
         })
     }
-
     render() {
         return (
             <div>{this.renderItem()}</div>
         )
     }
 }
-export default WallStreet
+export default Business
