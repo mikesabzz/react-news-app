@@ -8,6 +8,7 @@ class WallStreet extends React.Component {
     constructor(){
         super()
         this.state = {
+            loading: false,
             articles: []
         }
     }
@@ -15,7 +16,10 @@ class WallStreet extends React.Component {
         const url = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${apiKey}`
         const data = await axios.get(url)
         const { data: {articles} } = data
-        this.setState({articles})
+        this.setState({
+            loading: true,
+            articles
+        })
     }
     componentDidMount(){
        this.fetchNews()
