@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Header from './Header'
 
 const apiKey = process.env.REACT_APP_TOKEN_APIKEY
 
@@ -19,28 +20,31 @@ class WallStreet extends React.Component {
     componentDidMount(){
        this.fetchNews()
     }
-
+    
     renderItem = () => {
         const {articles} = this.state
         return articles.map(article => {
             const { title, author, urlToImage, description, url } = article
-            return (
-                <div key={title} className="news">
-                    <img src={urlToImage} />
-                    <div className="title-container">
+            return (                   
+                <div key={title} className="p-3 mb-2 bg-secondary text-white">
+                    <img src={urlToImage} alt="No Image Available" className="img-thumbnail" />
+                    <div>
                         <h1>{title}</h1>
-                        <div className="author">{author}</div>
+                        <div>{author}</div>
                         <p>{description}</p>
-                        <a href={url} target="_blank">URL</a>
+                        <a href={url} className="text-warning" target="_blank">More Information on {title}</a>
                     </div>
                 </div>
             )
         })
     }
-
+    
     render() {
         return (
-            <div>{this.renderItem()}</div>
+            <div>
+                <Header headline="Wall Street" />
+                {this.renderItem()}
+            </div>
         )
     }
 }

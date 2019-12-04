@@ -1,8 +1,7 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Header from './Components/Header'
 import { Link, Route } from 'react-router-dom'
-import Home from './Components/Home'
 import WallStreet from './Components/WallStreet'
 import Business from './Components/Business'
 import Bitcoin from './Components/Bitcoin'
@@ -10,17 +9,16 @@ import TechCrunch from './Components/TechCrunch'
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <nav>
-        <Link to="/homepage">Home Page</Link>
-        <Link to="/wallstreet">Wall Street</Link>
-        <Link to="/business">Business</Link>
-        <Link to="/bitcoin">Bitcoin</Link>
-        <Link to="/techcrunch">TechCrunch</Link>
-      </nav>
+    <div className="bg-dark">
+        <nav className="sticky-top navbar navbar-dark bg-dark">
+          <p className="navbar-brand font-weight-bold">News App</p>
+          <Link className="text-white" to="/wallstreet">Wall Street</Link>
+          <Link className="text-white" to="/business">Business</Link>
+          <Link className="text-white" to="/bitcoin">Bitcoin</Link>
+          <Link className="text-white mr-1" to="/techcrunch">TechCrunch</Link>
+        </nav>
+        
       <main>
-        <Route path="/homepage" component={Home} />
         <Route path="/wallstreet" component={WallStreet} />
         <Route path="/business" component={Business} />
         <Route path="/bitcoin" component={Bitcoin} />
