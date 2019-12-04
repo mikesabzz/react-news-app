@@ -1,1 +1,1 @@
-# [react-news-app](news-app-ms.surge.sh)
+# [react-news-app](http://news-app-ms.surge.sh/)
