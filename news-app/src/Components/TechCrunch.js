@@ -12,7 +12,7 @@ class TechCrunch extends React.Component {
         }
     }
     fetchNews = async () => {
-        const url = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${apiKey}`
+        const url = `http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${apiKey}`
         const data = await axios.get(url)
         const { data: {articles} } = data
         this.setState({articles})

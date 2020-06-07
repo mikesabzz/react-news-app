@@ -13,7 +13,7 @@ class WallStreet extends React.Component {
         }
     }
     fetchNews = async () => {
-        const url = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${apiKey}`
+        const url = `http://newsapi.org/v2/everything?domains=wsj.com&apiKey=${apiKey}`
         const data = await axios.get(url)
         const { data: {articles} } = data
         this.setState({

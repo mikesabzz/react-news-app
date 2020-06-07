@@ -12,7 +12,7 @@ class Bitcoin extends React.Component {
         }
     }
     fetchNews = async () => {
-        const url = `https://newsapi.org/v2/everything?q=bitcoin&sortBy=publishedAt&apiKey=${apiKey}`
+        const url = `http://newsapi.org/v2/everything?q=bitcoin&from=2020-05-07&sortBy=publishedAt&apiKey=${apiKey}`
         const data = await axios.get(url)
         const { data: {articles} } = data
         this.setState({articles})

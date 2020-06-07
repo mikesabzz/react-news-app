@@ -12,7 +12,7 @@ class Business extends React.Component {
         }
     }
     fetchNews = async () => {
-        const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}`
+        const url = `http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}`
         const data = await axios.get(url)
         const { data: {articles} } = data
         this.setState({articles})
